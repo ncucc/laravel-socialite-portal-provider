@@ -35,7 +35,7 @@ composer require ncucc/portal-oauth2-provider
 ```
 
 #### Step 4:
-或在 config 目錄下建一 ncu.php 的檔案，內容如下:
+在 config 目錄下建一 ncu.php 的檔案，內容如下:
 ```php
 <?php
 
