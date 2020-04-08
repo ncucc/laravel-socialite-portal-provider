@@ -93,12 +93,12 @@ php artisan make:controller PortalLoginController
 ```php
 public function redirectToProvider()
 {
-    return Socialite::with('portal')->redirect();
+    return \Socialite::with('portal')->redirect();
 }
 
 public function handleProviderCallback()
 {
-    $user = Socialite::with('portal')->user();
+    $user = \Socialite::with('portal')->user();
 
     // dd($user);
     // 登入成功 ... 產生一個 User 的物作, 用 Auth:login() 去讓 User 登入
