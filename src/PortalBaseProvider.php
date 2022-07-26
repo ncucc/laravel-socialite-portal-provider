@@ -67,7 +67,8 @@ class PortalBaseProvider extends AbstractProvider implements ProviderInterface
      */
     public function getAccessTokenResponse($code)
     {
-        $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
+        $clientInterfaceVersion = defined('GuzzleHttp\ClientInterface::MAJOR_VERSION') ? ClientInterface::MAJOR_VERSION : ClientInterface::VERSION;
+        $postKey = (version_compare($clientInterfaceVersion, '6') === 1) ? 'form_params' : 'body';
 
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
             'auth' => [$this->clientId, $this->clientSecret],
