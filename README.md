@@ -111,8 +111,14 @@ public function handleProviderCallback()
 把新加的 method 註冊在 route 裡:
 
 ```php
+# Laravel 7版以前
 Route::get('login', ['as' => 'login', 'uses' => 'PortalLoginController@redirectToProvider']);
 Route::get('callback', ['as' => 'callback', 'uses' => 'PortalLoginController@handleProviderCallback']);
+
+# Laravel 7版後
+Route::get('login', [PortalLoginController::class, 'redirectToProvider'])->name('login');
+Route::get('callback', [PortalLoginController::class, 'handleProviderCallback'])->name('callback');
 ```
+
 
 接下來就可以進行測試。
