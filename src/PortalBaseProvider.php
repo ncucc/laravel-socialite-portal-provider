@@ -67,7 +67,7 @@ class PortalBaseProvider extends AbstractProvider implements ProviderInterface
      */
     public function getAccessTokenResponse($code)
     {
-        $postKey = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
+        $postKey = (version_compare(ClientInterface::MAJOR_VERSION, '6') === 1) ? 'form_params' : 'body';
 
         $response = $this->getHttpClient()->post($this->getTokenUrl(), [
             'auth' => [$this->clientId, $this->clientSecret],
